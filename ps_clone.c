@@ -1,12 +1,22 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <stdio.h>
+#include <time.h>
 
 int main()
 {
-    //cabecera
-	printf("PROCESOS EN EJECUCION\n");
+    // obtener el tiempo actual
+    time_t rawtime;
+    struct tm *timeinfo;
+    time(&rawtime);
+    timeinfo = localtime(&rawtime);
+    // cabecera
+    printf("PROCESOS EN EJECUCION\n");
     printf("PROCESOS                      ID               PPID              TIME\n");
-	printf("Proceso generico            %d               %d             alguna hora\n",getpid(),getppid());
-    	
-	return 0;
-} 
+    fork();
+    fork();
+    fork();
+    printf("Proceso generico            %d               %d            %s\n", getpid(), getppid(),asctime (timeinfo));
+
+    return 0;
+}
