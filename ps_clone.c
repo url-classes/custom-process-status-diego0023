@@ -16,7 +16,7 @@ int main()
     fork();
     fork();
     fork();
-    printf("Proceso generico            %d               %d            %s\n", getpid(), getppid(),asctime (timeinfo));
-
+    printf("Proceso generico            %d               %d            %s", getpid(), getppid(),asctime (timeinfo));
+    
     return 0;
 }
